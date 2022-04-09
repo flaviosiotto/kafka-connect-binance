@@ -15,6 +15,4 @@ COPY . /binance-bot-strategy
 
 RUN mvn clean package
 
-COPY target/components/packages/confluentinc-kafka-connect-datagen-${KAFKA_CONNECT_BINANCE_VERSION}.zip /tmp/confluentinc-kafka-connect-datagen-${KAFKA_CONNECT_BINANCE_VERSION}.zip
-
-RUN confluent-hub install --no-prompt /tmp/confluentinc-kafka-connect-datagen-${KAFKA_CONNECT_BINANCE_VERSION}.zip
+RUN confluent-hub install --no-prompt target/components/packages/confluentinc-kafka-connect-datagen-${KAFKA_CONNECT_BINANCE_VERSION}.zip
