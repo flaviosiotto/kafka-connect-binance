@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github</groupId>
-  <artifactId>binance</artifactId>
+  <artifactId>kafka-connect-binance</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>binance</name>
@@ -103,7 +103,7 @@
                     <title>Kafka Connect Binance</title>
                     <documentationUrl></documentationUrl>
                     <description>For tests only: A Kafka Connect connector for read from Binance API</description>
-                    <ownerUsername>confluentinc</ownerUsername>
+                    <ownerUsername>flaviosiotto</ownerUsername>
                     <ownerType>organization</ownerType>
                     <ownerName>Flavio Siotto</ownerName>
                     <ownerUrl></ownerUrl>
