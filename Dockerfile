@@ -9,9 +9,9 @@ ENV CONNECT_PLUGIN_PATH="/usr/share/java,/usr/share/confluent-hub-components"
 ARG KAFKA_CONNECT_BINANCE_VERSION=0.1.0
 
 # Build Live Plugin
-RUN mkdir /kafka-connect-binance
-WORKDIR /kafka-connect-binance
-COPY . /binance-bot-strategy
+RUN mkdir ~/kafka-connect-binance
+WORKDIR ~/kafka-connect-binance
+COPY . ~/binance-bot-strategy
 
 RUN mvn clean package
 
