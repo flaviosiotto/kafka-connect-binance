@@ -1,0 +1,24 @@
+2022-04-03 03:06:29.051[1648947989051] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connecting to stream.binance.com/ws/btcusdt@trade
+2022-04-03 03:06:30.917[1648947990917] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connected to Server
+2022-04-03 03:06:31.420[1648947991420] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - Closing 1 connections(s)
+2022-04-03 03:06:31.420[1648947991420] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Closing connection to stream.binance.com/ws/btcusdt@trade
+2022-04-03 03:06:31.422[1648947991422] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:16.103[1648948036103] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connecting to stream.binance.com/ws/btcusdt@trade
+2022-04-03 03:07:18.118[1648948038118] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connected to Server
+2022-04-03 03:07:18.122[1648948038122] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - Closing 1 connections(s)
+2022-04-03 03:07:18.122[1648948038122] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Closing connection to stream.binance.com/ws/btcusdt@trade
+2022-04-03 03:07:18.124[1648948038124] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.127[1648948038127] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.129[1648948038129] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.135[1648948038135] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.137[1648948038137] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.138[1648948038138] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.139[1648948038139] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.140[1648948038140] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.141[1648948038141] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.142[1648948038142] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.143[1648948038143] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.144[1648948038144] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.224[1648948038224] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.372[1648948038372] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
+2022-04-03 03:07:18.384[1648948038384] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.impl.WebsocketClientImpl     - All connections are closed!
