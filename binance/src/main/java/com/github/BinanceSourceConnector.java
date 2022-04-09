@@ -1,4 +1,4 @@
-package com.example;
+package com.github;
 
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.utils.AppInfoParser;
