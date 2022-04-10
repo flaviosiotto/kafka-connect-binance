@@ -16,6 +16,8 @@ import java.util.Map;
 public class BinanceSourceConnector extends SourceConnector {
 
     private static final ConfigDef CONFIG_DEF = new ConfigDef();
+    private BinanceSourceConnectorConfig config;
+    private Map<String, String> props;
 
     @Override
     public String version() {
@@ -24,7 +26,8 @@ public class BinanceSourceConnector extends SourceConnector {
 
     @Override
     public void start(Map<String, String> props) {
-        
+        this.props = props;
+        config = new BinanceSourceConnectorConfig(props);
     }
 
     @Override
