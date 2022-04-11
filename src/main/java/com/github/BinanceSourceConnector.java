@@ -9,6 +9,7 @@ import org.apache.kafka.connect.source.SourceConnector;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 /**
  *
@@ -37,8 +38,13 @@ public class BinanceSourceConnector extends SourceConnector {
 
     @Override
     public List<Map<String, String>> taskConfigs(int maxTasks) {
-        ArrayList<Map<String, String>> configs = new ArrayList<>();
-        return configs;
+      List<Map<String, String>> taskConfigs = new ArrayList<>();
+      for (int i = 0; i < maxTasks; i++) {
+        Map<String, String> taskConfig = new HashMap<>(this.props);
+        taskConfig.put("binance", Integer.toString(i));
+        taskConfigs.add(taskConfig);
+      }
+      return taskConfigs;
     }
 
     @Override

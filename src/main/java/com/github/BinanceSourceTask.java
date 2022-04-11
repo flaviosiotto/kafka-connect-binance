@@ -49,7 +49,7 @@ public class BinanceSourceTask extends SourceTask {
         binanceConfig.put("symbol",symbol);
         binanceConfig.put("interval", interval);
 //        binanceConfig.put("startTime", starttime);
-        binanceConfig.put("interval", interval);
+
 
         market = new SpotClientImpl().createMarket();
 
