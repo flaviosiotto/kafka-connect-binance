@@ -12,6 +12,7 @@ import com.binance.connector.client.impl.spot.Market;
 
 import org.apache.kafka.common.errors.InterruptException;
 import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.apache.kafka.connect.source.SourceTask;
 import org.slf4j.Logger;
@@ -24,12 +25,27 @@ import org.slf4j.LoggerFactory;
 public class BinanceSourceTask extends SourceTask {
     private static final Logger log = LoggerFactory.getLogger(BinanceSourceTask.class);
 
+    private static final Schema schemaTrades = 
+    SchemaBuilder.struct().name("trades")
+    .field("e", Schema.STRING_SCHEMA)
+    .field("E", Schema.INT32_SCHEMA)
+    .field("s", Schema.STRING_SCHEMA)
+    .field("t", Schema.INT32_SCHEMA)
+    .field("p", Schema.FLOAT32_SCHEMA)
+    .field("q", Schema.INT32_SCHEMA)
+    .field("b", Schema.INT32_SCHEMA)
+    .field("a", Schema.INT32_SCHEMA)
+    .field("T", Schema.INT32_SCHEMA)
+    .field("m", Schema.BOOLEAN_SCHEMA)
+    .field("M", Schema.BOOLEAN_SCHEMA)
+    .build();
+
+
     private String topic;
     private String symbol;
     private BinanceSourceConnectorConfig config;
 
     private LinkedHashMap<String,Object> binanceConfig;
-    private Market market;
     private BinanceWebSocketClient binanceClient;
 
     @Override
@@ -81,7 +97,7 @@ public class BinanceSourceTask extends SourceTask {
             null,
             null,
             null,
-            Schema.BYTES_SCHEMA,
+            schemaTrades,
             result.getBytes()
         );
         records.add(record);
