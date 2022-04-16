@@ -11,6 +11,7 @@ import com.binance.connector.client.impl.SpotClientImpl;
 import com.binance.connector.client.impl.spot.Market;
 
 import org.apache.kafka.common.errors.InterruptException;
+import org.apache.kafka.common.message.ApiVersionsResponseData;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.source.SourceRecord;
@@ -39,7 +40,6 @@ public class BinanceSourceTask extends SourceTask {
     .field("m", Schema.BOOLEAN_SCHEMA)
     .field("M", Schema.BOOLEAN_SCHEMA)
     .build();
-
 
     private String topic;
     private String symbol;
@@ -75,6 +75,7 @@ public class BinanceSourceTask extends SourceTask {
         binanceClient = new BinanceWebSocketClient();
         binanceClient.combineStreams( streams );
 
+        
     }
 
     @Override
@@ -97,8 +98,8 @@ public class BinanceSourceTask extends SourceTask {
             null,
             null,
             null,
-            schemaTrades,
-            result.getBytes()
+            Schema.STRING_SCHEMA,
+            result
         );
         records.add(record);
 
