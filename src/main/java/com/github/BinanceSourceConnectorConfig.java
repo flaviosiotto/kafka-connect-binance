@@ -23,25 +23,22 @@ public class BinanceSourceConnectorConfig extends AbstractConfig {
     private static final String BINANCE_STARTTIME_DOC = "Start Time";
 
 
-
-    public static final ConfigDef CONFIG_DEF = createConfigDef();
-
-
-    public BinanceSourceConnectorConfig(final Map<?, ?> originalProps) {
-        super(CONFIG_DEF, originalProps);
+    public BinanceSourceConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
+        super(config, parsedConfig);
     }
 
+    public BinanceSourceConnectorConfig(Map<String, String> parsedConfig) {
+        this(ConfigDef(), parsedConfig);
+    }
 
-    public ConfigDef ConfigDef() {
-        ConfigDef configDef = new ConfigDef()
+    public static ConfigDef ConfigDef() {
+        return new ConfigDef()
             .define(KAFKA_TOPIC_CONF, Type.STRING, Importance.HIGH, KAFKA_TOPIC_DOC)
             .define(BINANCE_MARKET_ENDPOINT_CONF, Type.STRING, Importance.HIGH, BINANCE_MARKET_ENDPOINT_DOC)
             .define(BINANCE_SYMBOL_CONF, Type.STRING, Importance.HIGH, BINANCE_SYMBOL_DOC)
             .define(BINANCE_INTERVAL_CONF, Type.STRING, Importance.HIGH, BINANCE_INTERVAL_DOC)
             .define(BINANCE_STARTTIME_CONF, Type.LONG, Importance.HIGH, BINANCE_STARTTIME_DOC)
             ;
-
-        return configDef;
     }
 
     public String getKafkaTopic() {
