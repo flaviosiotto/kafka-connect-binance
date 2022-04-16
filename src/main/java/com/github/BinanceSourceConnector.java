@@ -16,7 +16,6 @@ import java.util.HashMap;
  */
 public class BinanceSourceConnector extends SourceConnector {
 
-    private static final ConfigDef CONFIG_DEF = new ConfigDef();
     private BinanceSourceConnectorConfig config;
     private Map<String, String> props;
 
@@ -54,7 +53,7 @@ public class BinanceSourceConnector extends SourceConnector {
 
     @Override
     public ConfigDef config() {
-        return CONFIG_DEF;
+        return config.ConfigDef();
     }
 
 }

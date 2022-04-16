@@ -32,7 +32,7 @@ public class BinanceSourceConnectorConfig extends AbstractConfig {
     }
 
 
-    private static ConfigDef createConfigDef() {
+    public ConfigDef ConfigDef() {
         ConfigDef configDef = new ConfigDef()
             .define(KAFKA_TOPIC_CONF, Type.STRING, Importance.HIGH, KAFKA_TOPIC_DOC)
             .define(BINANCE_MARKET_ENDPOINT_CONF, Type.STRING, Importance.HIGH, BINANCE_MARKET_ENDPOINT_DOC)
