@@ -72,7 +72,7 @@ public class Trade {
         this.eventType = eventType;
     }
 
-    @JsonProperty("e")
+    @JsonProperty("E")
     public Long getEventTime() {
         return eventTime;
     }
