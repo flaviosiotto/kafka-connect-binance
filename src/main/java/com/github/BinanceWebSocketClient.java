@@ -6,18 +6,30 @@ import com.binance.connector.client.utils.WebSocketCallback;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.model.CombinedTrades;
 
 public class BinanceWebSocketClient extends WebsocketClientImpl{
 
     private static WebSocketCallback onMessageCallback;
 
-    public static ConcurrentLinkedQueue<String> messageQueue = new ConcurrentLinkedQueue<String>();
+    public static ConcurrentLinkedQueue<CombinedTrades> messageQueue = new ConcurrentLinkedQueue<CombinedTrades>();
+
+    ObjectMapper mapper = new ObjectMapper();
+    private CombinedTrades trade;
 
     public BinanceWebSocketClient() {
         super();
 
         onMessageCallback = (message) -> {
-            messageQueue.add(message);
+            try {
+                trade = mapper.readValue(message, CombinedTrades.class);
+            } catch (JsonProcessingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            messageQueue.add(trade);
         };
 
     }
@@ -26,6 +38,7 @@ public class BinanceWebSocketClient extends WebsocketClientImpl{
     public void combineStreams(ArrayList<String> streams) {
         this.combineStreams(streams, onMessageCallback);
     }
+
 
     /*
     private static volatile boolean isTradeStreamUp = false;

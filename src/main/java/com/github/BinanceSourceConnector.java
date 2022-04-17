@@ -53,7 +53,7 @@ public class BinanceSourceConnector extends SourceConnector {
 
     @Override
     public ConfigDef config() {
-        return config.ConfigDef();
+        return BinanceSourceConnectorConfig.ConfigDef();
     }
 
 }
