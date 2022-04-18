@@ -8,23 +8,24 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.model.CombinedTrades;
+
+import com.github.model.Trade;
 
 public class BinanceWebSocketClient extends WebsocketClientImpl{
 
     private static WebSocketCallback onMessageCallback;
 
-    public static ConcurrentLinkedQueue<CombinedTrades> messageQueue = new ConcurrentLinkedQueue<CombinedTrades>();
+    public static ConcurrentLinkedQueue<Trade> messageQueue = new ConcurrentLinkedQueue<Trade>();
 
     ObjectMapper mapper = new ObjectMapper();
-    private CombinedTrades trade;
+    private Trade trade;
 
     public BinanceWebSocketClient() {
         super();
 
         onMessageCallback = (message) -> {
             try {
-                trade = mapper.readValue(message, CombinedTrades.class);
+                trade = mapper.readValue(message, Trade.class);
             } catch (JsonProcessingException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
