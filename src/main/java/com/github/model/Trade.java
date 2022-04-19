@@ -23,14 +23,14 @@ public class Trade {
 
     public static Schema SCHEMA = SchemaBuilder.struct()
             .field("e", Schema.STRING_SCHEMA)
-            .field("E", Schema.INT32_SCHEMA)
+            .field("E", Schema.INT64_SCHEMA)
             .field("s", Schema.STRING_SCHEMA)
-            .field("t", Schema.INT32_SCHEMA)
+            .field("t", Schema.INT64_SCHEMA)
             .field("p", Schema.FLOAT32_SCHEMA)
             .field("q", Schema.FLOAT32_SCHEMA)
-            .field("b", Schema.INT32_SCHEMA)
-            .field("a", Schema.INT32_SCHEMA)
-            .field("T", Schema.INT32_SCHEMA)
+            .field("b", Schema.INT64_SCHEMA)
+            .field("a", Schema.INT64_SCHEMA)
+            .field("T", Schema.INT64_SCHEMA)
             .field("m", Schema.BOOLEAN_SCHEMA)
         .build();
 
