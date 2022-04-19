@@ -5,14 +5,17 @@ import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.data.Struct;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Trade {
     private String eventType;
     private Long eventTime;
     private String symbol;
     private Long tradeID;
     private Float price;
-    private Long quantity;
+    private Float quantity;
     private Long buyerID;
     private Long sellerID;
     private Long tradeTime;
@@ -24,15 +27,18 @@ public class Trade {
             .field("s", Schema.STRING_SCHEMA)
             .field("t", Schema.INT32_SCHEMA)
             .field("p", Schema.FLOAT32_SCHEMA)
-            .field("q", Schema.INT32_SCHEMA)
+            .field("q", Schema.FLOAT32_SCHEMA)
             .field("b", Schema.INT32_SCHEMA)
             .field("a", Schema.INT32_SCHEMA)
             .field("T", Schema.INT32_SCHEMA)
             .field("m", Schema.BOOLEAN_SCHEMA)
         .build();
 
+    public Trade() {
+        super();
+    }
 
-    public Trade(String eventType, Long eventTime, String symbol, Long tradeID, Float price, Long quantity,
+    public Trade(String eventType, Long eventTime, String symbol, Long tradeID, Float price, Float quantity,
             Long buyerID, Long sellerID, Long tradeTime, Boolean marketMaker) {
         this.eventType = eventType;
         this.eventTime = eventTime;
@@ -109,11 +115,11 @@ public class Trade {
     }
 
     @JsonProperty("q")
-    public Long getQuantity() {
+    public Float getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(Float quantity) {
         this.quantity = quantity;
     }
 
