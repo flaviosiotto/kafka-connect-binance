@@ -66,8 +66,8 @@ public class Trade {
             .put("id_trade", tradeID)
             .put("price", price)
             .put("quantity", quantity)
-            .put("id_buyer", buyerID)
-            .put("id_seller", sellerID)
+            .put("id_buyer_order", buyerID)
+            .put("id_seller_order", sellerID)
             .put("trade_time", tradeTime)
             .put("market_maker", marketMaker)
             ;
