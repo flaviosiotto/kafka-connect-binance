@@ -83,8 +83,8 @@ public class BinanceSourceTask extends SourceTask {
             Collections.singletonMap("offset", 0),
             topic,
             null,
-            null,
-            null,
+            Trade.KEY_SCHEMA,
+            trade.toKeyStruct(),
             Trade.SCHEMA,
             trade.toStruct()
         );

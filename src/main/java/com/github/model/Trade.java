@@ -21,18 +21,23 @@ public class Trade {
     private Long tradeTime;
     private Boolean marketMaker;
 
+    public static Schema KEY_SCHEMA = SchemaBuilder.struct()
+        .field("symbol", Schema.STRING_SCHEMA)
+        .field("id_trade", Schema.INT64_SCHEMA)
+    .build();
+
     public static Schema SCHEMA = SchemaBuilder.struct()
-            .field("e", Schema.STRING_SCHEMA)
-            .field("E", Schema.INT64_SCHEMA)
-            .field("s", Schema.STRING_SCHEMA)
-            .field("t", Schema.INT64_SCHEMA)
-            .field("p", Schema.FLOAT32_SCHEMA)
-            .field("q", Schema.FLOAT32_SCHEMA)
-            .field("b", Schema.INT64_SCHEMA)
-            .field("a", Schema.INT64_SCHEMA)
-            .field("T", Schema.INT64_SCHEMA)
-            .field("m", Schema.BOOLEAN_SCHEMA)
-        .build();
+        .field("event_type", Schema.STRING_SCHEMA)
+        .field("event_time", Schema.INT64_SCHEMA)
+        .field("symbol", Schema.STRING_SCHEMA)
+        .field("id_trade", Schema.INT64_SCHEMA)
+        .field("price", Schema.FLOAT32_SCHEMA)
+        .field("quantity", Schema.FLOAT32_SCHEMA)
+        .field("id_buyer_order", Schema.INT64_SCHEMA)
+        .field("id_seller_order", Schema.INT64_SCHEMA)
+        .field("trade_time", Schema.INT64_SCHEMA)
+        .field("market_maker", Schema.BOOLEAN_SCHEMA)
+    .build();
 
     public Trade() {
         super();
@@ -55,19 +60,25 @@ public class Trade {
 
     public Struct toStruct() {
         return new Struct(SCHEMA)
-            .put("e", eventType)
-            .put("E", eventTime)
-            .put("s", symbol)
-            .put("t", tradeID)
-            .put("p", price)
-            .put("q", quantity)
-            .put("b", buyerID)
-            .put("a", sellerID)
-            .put("T", tradeTime)
-            .put("m", marketMaker)
+            .put("event_type", eventType)
+            .put("event_time", eventTime)
+            .put("symbol", symbol)
+            .put("id_trade", tradeID)
+            .put("price", price)
+            .put("quantity", quantity)
+            .put("id_buyer", buyerID)
+            .put("id_seller", sellerID)
+            .put("trade_time", tradeTime)
+            .put("market_maker", marketMaker)
             ;
     }
 
+    public Struct toKeyStruct() {
+        return new Struct(SCHEMA)
+            .put("symbol", symbol)
+            .put("id_trade", tradeID)
+         ;
+    }
 
     @JsonProperty("e")
     public String getEventType() {
