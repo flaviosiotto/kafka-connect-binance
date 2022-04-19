@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CombinedTrades {
     private String streams;
+    @JsonProperty("data")
     private Trade data;
 
     public static Schema SCHEMA = SchemaBuilder.struct()
@@ -17,6 +18,10 @@ public class CombinedTrades {
         .field("data",
             Trade.SCHEMA
         );
+
+    public CombinedTrades() {
+        super();
+    }        
 
     public CombinedTrades(String streams, Trade data) {
         this.streams = streams;

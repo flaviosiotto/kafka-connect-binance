@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
 
-import com.binance.connector.client.impl.SpotClientImpl;
-import com.binance.connector.client.impl.spot.Market;
+import com.github.model.CombinedTrades;
 import com.github.model.Trade;
 
 import org.apache.kafka.common.errors.InterruptException;
@@ -68,11 +67,13 @@ public class BinanceSourceTask extends SourceTask {
     public List<SourceRecord> poll() throws InterruptException {
 
 //        String result = market.klines(binanceConfig);
-        Trade result = BinanceWebSocketClient.messageQueue.poll();
+        CombinedTrades result = BinanceWebSocketClient.messageQueue.poll();
 
         if (result == null) {
             return null;
         }
+
+        Trade trade = result.getData();
 
         final List<SourceRecord> records = new ArrayList<>();
 
@@ -85,7 +86,7 @@ public class BinanceSourceTask extends SourceTask {
             null,
             null,
             Trade.SCHEMA,
-            result.toStruct()
+            trade.toStruct()
         );
         records.add(record);
 
